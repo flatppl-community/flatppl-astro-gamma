@@ -133,7 +133,8 @@ probabilities, not a density; no reconstructed-bin width is applied here.
 Already integrated true-bin flux must not receive quadrature weights again.
 Responses that already contain area or exposure likewise must not receive these
 factors twice. Match the response selection, directional cut, live-time convention,
-and observing conditions to the counts. For sky intensity, integrate solid angle
+and observing conditions to the counts. Include directional acceptance once.
+For sky intensity, integrate solid angle
 explicitly before using this scalar point-source convention.
 
 <a id="migration_density_to_energy_density"></a>
@@ -191,25 +192,11 @@ No public-data reproduction, parameter recovery, or coverage claim is made.
 
 ## Examples and validation
 
-See the [function reference](reference.md) and the runnable
-[synthetic ON/OFF example](../examples/synthetic-onoff.flatppl), which exposes source
-counts, a joint count law, an explicit amplitude prior, and an unnormalized posterior.
-Its invented response is **synthetic**; it is not a reproduction of public MAGIC data.
-
-Spectral amplitude is the differential flux at the reference energy. Curvature
-uses natural logarithms. Folding imports `project` from
-[flatppl-stats-templates](https://github.com/flatppl-community/flatppl-stats-templates);
-the example imports the ON/OFF law from
+Folding imports `project` from
+[flatppl-stats-templates](https://github.com/flatppl-community/flatppl-stats-templates).
+The example imports the ON/OFF law from
 [flatppl-stats-counts](https://github.com/flatppl-community/flatppl-stats-counts).
-Neither library supplies an implicit prior. Source dependencies use commit-pinned URLs.
-
-Response rows are retained reconstructed bins; columns are true-energy quadrature
-nodes. Columns may sum to less than one. Supply reconstructed-bin probabilities,
-positive true-energy weights, effective area, and live time once each. Apply EBL on
-the true-energy grid before folding. Do not add another PSF-containment factor to an
-area response that already includes the directional cut. Area and time must use
-compatible dead-time conventions. This version supplies numeric formulas and does
-not parse FITS, choose a cosmology/EBL table, or run an optimizer or sampler.
+Source dependencies use commit-pinned URLs.
 
 Run the independent NumPy/SciPy checks with an existing Python environment:
 
