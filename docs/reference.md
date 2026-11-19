@@ -70,10 +70,10 @@ the `powerlaw` domains. Return integrated photon flux (inverse area and time):
 
 ```math
 \begin{aligned}
-I_{\rm ph}&=\int_L^U \phi(E)\,dE\\
-&=N_0 L (L/E_0)^{-\gamma}\ell\,R((1-\gamma)\ell),\qquad
-\ell=\ln(U/L),\\
-R(z)&=\frac{\exp(z)-1}{z},\qquad R(0)=1.
+I_{\rm ph}&=\int_L^U \phi(E)\,dE
+\\ &=N_0 L (L/E_0)^{-\gamma}\ell\,R((1-\gamma)\ell),\qquad
+\ell=\ln(U/L),
+\\ R(z)&=\frac{\exp(z)-1}{z},\qquad R(0)=1.
 \end{aligned}
 ```
 
